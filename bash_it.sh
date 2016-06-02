@@ -85,3 +85,5 @@ if [ -e "$HOME/.jekyllconfig" ]
 then
   . "$HOME/.jekyllconfig"
 fi
+
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
