@@ -28,11 +28,17 @@ prompt_setter() {
   if [[ $exit_status -eq 0 ]]; then PROMPT_END=$PROMPT_END_CLEAN
     else PROMPT_END=$PROMPT_END_DIRTY
   fi
+  if [[ $VIRTUAL_ENV != "" ]]
+    then
+      venv=" (${VIRTUAL_ENV##*/})"
+  else
+      venv=''
+  fi
   # Save history
   history -a
   history -c
   history -r
-  PS1="(\t) $(scm_char) [${blue}\u${reset_color}@${green}\H${reset_color}] ${yellow}\w${reset_color}$(scm_prompt_info) ${reset_color}\n$(prompt_end) "
+  PS1="(\t) $(scm_char) [${blue}\u${reset_color}@${green}\H${reset_color}] ${yellow}\w${reset_color} ${venv} $(scm_prompt_info) ${reset_color}\n $(prompt_end) "
   PS2='> '
   PS4='+ '
 }

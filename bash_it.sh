@@ -98,3 +98,12 @@ else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 
+RED='\[\033[31m\]'
+if [[ $VIRTUAL_ENV != "" ]]
+    then
+     venv=" ${RED}(${VIRTUAL_ENV##*/})"
+else
+     venv=''
+fi
+
+
