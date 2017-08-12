@@ -107,3 +107,4 @@ else
 fi
 
 
+alias pm='python manage.py '
